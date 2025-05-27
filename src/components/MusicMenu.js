@@ -1,8 +1,7 @@
 import React, { useEffect } from 'react';
 
-
-function MusicMenu() {
-
+function MusicMenu({ activeItemInMenu }) {
+    const musicMenuItems = ['All Songs', 'Artists', 'Albums'];
 
     return (
       <table id="music-menu">
@@ -10,15 +9,13 @@ function MusicMenu() {
         <tr>
             <th className="table-heading">Music <i className="fas fa-music"></i></th>
         </tr>
-        <tr data-option="allSongs">
-            <td className="table-item">All Songs<i className="fas fa-chevron-right"></i></td> 
-        </tr>
-        <tr data-option="artists">
-            <td className="table-item">Artists<i className="fas fa-chevron-right"></i></td>
-        </tr>
-        <tr data-option="albums">
-            <td className="table-item">Albums<i className="fas fa-chevron-right"></i></td>
-        </tr>
+        {musicMenuItems.map((item, index) => (
+          <tr key={index} data-option={item.toLowerCase().replace(' ', '')}>
+            <td className={`table-item ${activeItemInMenu === index ? 'active' : ''}`}>
+              {item}<i className="fas fa-chevron-right"></i>
+            </td> 
+          </tr>
+        ))}
         </tbody>
     </table>
     );

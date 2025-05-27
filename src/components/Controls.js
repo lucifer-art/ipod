@@ -3,16 +3,16 @@ import leftArrow from './images/left-arrow.png';
 import rightArrow from './images/right-arrow.png';
 import bottomArrow from './images/arrow-pointing-downwards.png';
 
-// introduce your own eventhandler for eac button Here.
-function Controls() {
+// introduce your own eventhandler for each button Here.
+function Controls({ onOkClick, onMenuClick }) {
     return (
-      <section id="controls" onClick={}>
+      <section id="controls">
         <div id="wheel">
           <span 
             id="menu-button"
             className="buttons" 
             style={ {top: 20} }
-            onClick={}
+            onClick={onMenuClick}
           >
             Menu
           </span>
@@ -28,7 +28,7 @@ function Controls() {
             src={bottomArrow} alt="bottom" 
             style={ {bottom: 13, width: 30, height: 37} }>
           </img>
-          <div id="ok-button" onClick={}>
+          <div id="ok-button" onClick={onOkClick}>
             <b>OK</b>
           </div>
         </div>
@@ -37,4 +37,3 @@ function Controls() {
   }
   
   export default Controls;
-  
